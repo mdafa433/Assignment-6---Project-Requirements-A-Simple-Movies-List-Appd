@@ -7,11 +7,11 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState('marvel'); 
 
-  const fetchMovies = (searchTerm) => {
-    if (!searchTerm.trim()) return;
+  const fetchMovies = (search) => {
+    if (!search.trim()) return;
     const apiKey = import.meta.env.VITE_MY_MOVIE_API;
 
-    fetch(`https://www.omdbapi.com/?s=${searchTerm}&apikey=${apiKey}`)
+    fetch(`https://www.omdbapi.com/?s=${search}&apikey=${apiKey}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.Search) {
